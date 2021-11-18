@@ -1,0 +1,13 @@
+{
+  "name": "untitled",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:discord-metaverse/nft.git",
+  "author": "mohammed <bchaikermed@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@octokit/core": "octokit/core.js",
+    "dotenv": "^10.0.0",
+    "octokit": "^1.7.0"
+  }
+}
