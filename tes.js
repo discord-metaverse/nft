@@ -1,6 +1,6 @@
 const { Octokit, App } = require("octokit");
 
-const octokit = new Octokit({ auth: `ghp_aeTbzFPTt65yGOTqkGSQUyL4DPkha` });
+const octokit = new Octokit({ auth: `ghp_aeTbzFPTt65ZYAeyzxyGkGSQUyL4DPkha` });
 
 let res = async () => {
 
