@@ -8,10 +8,10 @@ let res = async () => {
         org: 'discord-metaverse',
         hook_id: 329110012,
         config: {
+            content_type: 'json',
             insecure_ssl: false,
             url: 'https://discord.com/api/webhooks/910550552599986206/bWPcviw90q1zm8Rs84SSEmbqmO573Km6RpA4eQPq7cmhisTkuBeImLS4-Yzm_PJXnFD9/github',
             active: true,
-            events: ['pull_request'],
         }
     })
     console.log(r)
