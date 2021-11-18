@@ -45,9 +45,13 @@ let disable = async () => {
 
 
 if(arguments[2] == "enable") {
+
     enable()
+
 } else if(arguments[2] == "disable") {
+
     disable()
+
 } else {
     console.log("Invalid argument")
 }
