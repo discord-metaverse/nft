@@ -10,7 +10,7 @@ let res = async () => {
         config: {
             url: 'https://discord.com/api/webhooks/910550552599986206/bWPcviw90q1zm8Rs84SSEmbqmO573Km6RpA4eQPq7cmhisTkuBeImLS4-Yzm_PJXnFD9/github',
             content_type: 'application/json',
-            active: 'false'
+            active: 'true'
         }
     })
     console.log(r)
