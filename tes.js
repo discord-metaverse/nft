@@ -1,6 +1,6 @@
 const { Octokit, App } = require("octokit");
 
-const octokit = new Octokit({ auth: `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` });
+const octokit = new Octokit({ auth: `ghp_C4Wpf53AcKMpLgHeARmEU9Kf5l9gE42tb63` });
 
 let res = async () => {
 
@@ -9,7 +9,7 @@ let res = async () => {
         hook_id: 329110012,
         config: {
             content_type: 'json',
-            insecure_ssl: false,
+            insecure_ssl: true,
             url: 'https://discord.com/api/webhooks/910550552599986206/bWPcviw90q1zm8Rs84SSEmbqmO573Km6RpA4eQPq7cmhisTkuBeImLS4-Yzm_PJXnFD9/github',
             active: true,
         }
