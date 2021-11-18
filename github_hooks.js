@@ -5,52 +5,42 @@ const config = require('dotenv').config()
 let arguments = process.argv
 const octokit = new Octokit({ auth: process.env.TOKEN });
 
-let enable = async () => {
+let manage_hook = async (activation, content_type) => {
 
     const r = await octokit.request('PATCH /orgs/{org}/hooks/{hook_id}', {
-        org: 'discord-metaverse',
-        hook_id: 329110012,
+        org: process.env.ORGANIZATION,
+        hook_id: process.env.HOOK_ID,
         config: {
-            content_type: 'json',
+            content_type: content_type,
             insecure_ssl: true,
-            url: 'https://discord.com/api/webhooks/910550552599986206/bWPcviw90q1zm8Rs84SSEmbqmO573Km6RpA4eQPq7cmhisTkuBeImLS4-Yzm_PJXnFD9/github',
-            active: true,
+            url: process.env.DISCORD_URL,
+            active: activation,
         }
     })
-    if(r.status == 200) {
-        console.log("Successfully enabled webhook")
-    } else {
-        console.log("Failed to enable webhook")
-    }
-}
-
-let disable = async () => {
-
-    const r = await octokit.request('PATCH /orgs/{org}/hooks/{hook_id}', {
-        org: 'discord-metaverse',
-        hook_id: 329110012,
-        config: {
-            content_type: 'xml',
-            insecure_ssl: true,
-            url: 'https://discord.com/api/webhooks/910550552599986206/bWPcviw90q1zm8Rs84SSEmbqmO573Km6RpA4eQPq7cmhisTkuBeImLS4-Yzm_PJXnFD9/github',
-            active: false,
+    if (activation) {
+        if(r.status == 200) {
+            console.log("Successfully enabled webhook, response status : "+ r.status)
+        } else {
+            console.log("Failed to enable webhook, response status : "+ r.status)
         }
-    })
-    if(r.status == 200) {
-        console.log("Successfully disable webhook")
     } else {
-        console.log("Failed to disable webhook")
+        if(r.status === 200) {
+            console.log("Successfully disable webhook, response status : " + r.status)
+        } else {
+            console.log("Failed to disable webhook, response status : "+ r.status)
+        }
     }
+
 }
 
 
-if(arguments[2] == "enable") {
+if(arguments[2] === "enable") {
 
-    enable()
+    manage_hook(true, "json")
 
-} else if(arguments[2] == "disable") {
+} else if(arguments[2] === "disable") {
 
-    disable()
+    manage_hook(false, "xml")
 
 } else {
     console.log("Invalid argument")
